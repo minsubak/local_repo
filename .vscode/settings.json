@@ -37,6 +37,8 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "vector": "cpp",
-        "algorithm_221118.h": "c"
+        "algorithm_221118.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c"
     }
 }

@@ -9,10 +9,10 @@
  * g++ [filename.cpp] -o [filename] && ./[filename.exe]
  * 
  * data file
- * ·ù½Â·æ 20174075 3
- * ±Ç»ó¿ì 20174022 1
- * ÀÌº´Çå 20174033 4
- * ±è³²±æ 20174015 2
+ * ryu 20174075 3
+ * gun 20174022 1
+ * lee 20174033 4
+ * kim 20174015 2
  */
 #include <stdio.h>
 #include "algorithm_221118.h"
