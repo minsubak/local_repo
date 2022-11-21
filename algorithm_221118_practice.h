@@ -1,54 +1,77 @@
-/**
- * @file    algorithm_221118.h
- * @author  박민수-20194013(Mindou) (minsu5875@naver.com)
- * @brief   알고리즘 실습 12주차 과제 헤더파일
- * @version not exist
- * @date    update: 2022-11-21 (info: add commit and opstimization)
- * 
- * @copyright Copyright by Mindou (c) 2022
- * 
- */
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef PRACTICE_H
+#define PRACTICE_H
 
 #include <stdio.h>
 #include <stdlib.h>
+//
 
 /**
- * @brief 에러 메세지 출력
+ * @brief studnet info struct
+ * 
+ */
+typedef struct student{
+    char name[20];
+    int  sID;
+    int  rank;
+}student;
+
+typedef struct element {
+    char name[20];
+    int  ID;
+    char cellphone[20];
+}element;
+
+/**
+ * @brief print int array data
+ * 
+ * @param list int data
+ * @param n    count
+ */
+void print_s(int list[], int n);
+
+/**
+ * @brief print int array data
+ * 
+ * @param list int data
+ * @param n    count
+ */
+void print_e(int list[], int n);
+
+/**
+ * @brief print error message
  * 
  * @param message error info
  */
 void error(char *message);
 
 /**
- * @brief 선택 정렬
+ * @brief using selection sort
  * 
- * @param list int data array
+ * @param list int data
  * @param n    count
  */
 void selection_sort(int list[], int n);
 
 /**
- * @brief 삽입 정렬
+ * @brief using insertion sort
  * 
- * @param list int data array
+ * @param list int data
  * @param n    count
  */
 void insertion_sort(int list[], int n);
 
 /**
- * @brief 버블 정렬
+ * @brief using bubble sort
  * 
- * @param list int data array
+ * @param list int data
  * @param n    count
  */
 void bubble_sort(int list[], int n);
 
 /**
- * @brief 쉘 정렬의 부속 함수(삽입)
+ * @brief componenet of shell sort
  * 
- * @param list  int data array
+ * @param list  data
  * @param first first sort pos
  * @param last  last sort pos
  * @param gap   gap of first and last
@@ -56,20 +79,25 @@ void bubble_sort(int list[], int n);
 void inc_insertion_sort(int list[], int first, int last, int gap);
 
 /**
- * @brief 쉘 정렬
+ * @brief using shell sort
  * 
- * @param list int data array
+ * @param list data
  * @param n    count
  */
 void shell_sort(int list[], int n);
 
-/**
- * @brief 배열 초기화 함수 | 배열 내용을 정렬 전의 초기 형태로 초기화
- * 
- * @param list   int data array
- * @param target reset target
- * @param n      count
- */
+void print_s(student s[], int n) {
+    for(int i = 0; i < n; i ++) {
+        printf("%s %d %d\n", s[i].name, s[i].sID, s[i].rank);
+    }
+}
+
+void print_e(element list[], int n) {
+        for(int i = 0; i < n; i ++) {
+        printf("%s %d %s\n", list[i].name, list[i].ID, list[i].cellphone);
+    }
+}
+
 void reset_array(int list[], int target[], int n);
 
 void error(char *message) {
@@ -137,4 +165,5 @@ void reset_array(int list[], int target[], int n) {
     for(int i = 0; i < n; i++)
         target[i] = list[i];
 }
+
 #endif

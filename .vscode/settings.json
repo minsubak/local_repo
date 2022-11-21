@@ -39,6 +39,7 @@
         "vector": "cpp",
         "algorithm_221118.h": "c",
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "time.h": "c"
     }
 }
