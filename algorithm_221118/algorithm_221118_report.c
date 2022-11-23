@@ -4,6 +4,7 @@
  * @brief   알고리즘 실습 12주차 과제
  *          (IDE: vscode, Compiler: mingw)
  *          만약 vscode와 msys2(mingw) 이용할 경우 해당 커맨드를 터미널에 입력해 실행
+ *          (* 해당 파일 위치에서 실행할 것!)
  *          : g++ algorithm_221118_report.c -o reprot && ./report
  * @version not exist
  * @date    update: 2022-11-21 (info: add commit and opstimization)
