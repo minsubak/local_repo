@@ -4,13 +4,13 @@ _COLOR_BEGIN := $(shell tput setaf 99)
 _COLOR_END := $(shell tput sgr0)
 
 PROJECT_NAME := local_repo
-PROJECT_FULL_NAME := vscode/local_repo
+PROJECT_FULL_NAME := minsubak/local_repo
 
 PROJECT_PREFIX := $(_COLOR_BEGIN)$(PROJECT_FULL_NAME):$(_COLOR_END)
 
-BINARY_PATH := cpp_221121
-INCLUDE_PATH := cpp_221121
-SOURCE_PATH := cpp_221121
+BINARY_PATH := bin
+INCLUDE_PATH := include
+SOURCE_PATH := src
 
 SOURCES := $(wildcard $(SOURCE_PATH)/*.cpp)
 TARGETS := $(patsubst $(SOURCE_PATH)/%.cpp,$(BINARY_PATH)/%.out,$(SOURCES))
