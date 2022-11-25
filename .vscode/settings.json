@@ -40,6 +40,7 @@
         "algorithm_221118.h": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "sort.h": "c"
     }
 }
