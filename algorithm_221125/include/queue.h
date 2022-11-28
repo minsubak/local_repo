@@ -3,7 +3,7 @@
 
 #define BUCKETS 10
 #define DIGITS  4
-#define MAX_Q 10
+#define MAX_Q   20
 
 #include <stdbool.h>
 

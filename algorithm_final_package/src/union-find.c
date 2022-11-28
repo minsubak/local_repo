@@ -1,10 +1,5 @@
 #include "union-find.h"
 
-/**
- * @brief Set the init object
- * 
- * @param n 
- */
 void set_init(int n) {
     for (int i = 0; i < n; i++)
         parent[i] = -1;

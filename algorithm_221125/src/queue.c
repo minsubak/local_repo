@@ -8,16 +8,14 @@ void init_queue(QueueType *q) {
 }
 
 bool is_empty(QueueType *q) {
-    if(q->front == q->rear) return true;
-    else false;
+    return (q->front == q->rear);
 }
 
 bool is_full(QueueType *q) {
-     if(q->front == (q->rear+1) % MAX_Q) return true;
-     else false;
+    return (q->front == (q->rear+1) % MAX_Q);
 }
 
-void enqueue(QueueType *q, element item) {
+void enqueue(QueueType *q, element_q item) {
     if(is_full(q)) {
         fprintf(stderr, "queue is full!\n");
         exit(1);
@@ -26,10 +24,10 @@ void enqueue(QueueType *q, element item) {
     q->queue[q->rear] = item;
 }
 
-element dequeue(QueueType *q) {
+element_q dequeue(QueueType *q) {
     if(is_empty(q)) {
         fprintf(stderr, "queue is empty!\n");
-        exit(1);
+        return;
     }
     q->front = (q->front + 1) % MAX_Q;
     return q->queue[q->front];

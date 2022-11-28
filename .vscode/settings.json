@@ -41,6 +41,7 @@
         "stdio.h": "c",
         "stdlib.h": "c",
         "time.h": "c",
-        "sort.h": "c"
+        "sort.h": "c",
+        "search.h": "c"
     }
 }
