@@ -1,4 +1,3 @@
-#made by foxstar(dennis) -> https://github.com/dennis0324
 .PHONY: all clean
 
 _COLOR_BEGIN := $(shell tput setaf 13)

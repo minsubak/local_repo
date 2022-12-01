@@ -42,6 +42,8 @@
         "stdlib.h": "c",
         "time.h": "c",
         "sort.h": "c",
-        "search.h": "c"
+        "search.h": "c",
+        "*.tcc": "cpp",
+        "iomanip": "cpp"
     }
 }
