@@ -1,9 +1,17 @@
 /**
- * @file    
+ * @file    quick_sort.h
  * @author  mindou (minsu5875@naver.com)
- * @brief 
+ * @brief   quick_sort에 대한 설명
+ *          
+ *          [개요]
+ *          평균적으로 매우 빠른 수행 속도를 자랑하는 정렬 알고리즘이며
+ *          분할 정복법에 근거
+ *          합볍 정렬과 달리 리스트를 리스트 내의 한 요소를 피벗값으로
+ *          비균등하게 분할하고 피벗 값을 기준으로 피벗값보다 작은 값은
+ *          왼쪽 리스트, 큰 값은 오른쪽 리스트로 이동하는 것이 차이점
+ * 
  * @version null
- * @date    last update: 2022-12-05
+ * @date    last update: 2022-12-06
  * 
  * @copyright Copyright (c) Mindou 2022
  * 
@@ -12,8 +20,10 @@
 #ifndef QUICK_H
 #define QUICK_H
 
+#include "main.h"
+
 /**
- * @brief 퀵 정렬 부속 함수(분할)
+ * @brief 퀵 정렬 분할 연산
  * 
  * @param list  int data array
  * @param left  data count(min)
@@ -21,11 +31,11 @@
  * @return int 
  */
 int partition(int list[], int left, int right) {
-    int pivot, temp, low, high;
-
-    low = left;
-    high = right + 1;
-    pivot = list[left];
+    
+    int tmp;
+    int low = left;
+    int high = right + 1;
+    int pivot = list[left];
     do {
         do
             low++;
@@ -33,15 +43,11 @@ int partition(int list[], int left, int right) {
         do
             high--;
         while(list[high] > pivot);
-        if(low < high) {
-            temp = list[low];
-            list[low] = list[high];
-            list[high] = temp;
-        }
+        if(low < high) 
+        SWAP(list[low], list[high], tmp);
     } while(low < high);
-    temp = list[left];
-    list[left] = list[high];
-    list[high]= temp;
+    
+    SWAP(list[left], list[high], tmp);
     return high;
 }
 

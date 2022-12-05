@@ -14,10 +14,16 @@
  *          불가능한 프로젝트가 되고 알고리즘 중단
  * 
  *          [동작 방식]
- *          in_degree배열을 만들고 각 정점의 진입 차수를 기록
+ *          1차원 배열 in_degree를 만들고 각 정점의 진입 차수를 기록하고 배열값
+ *          이 0인 후보 정점들은 스택에 푸시
+ *          이후 스택에서 하나 씩 꺼내 출력하면서 그래프에서 제거되고, 인접한 정
+ *          점들의 배열값을 1만큼 감소하고 그에 따라 배열값이 0이 된 후보 정점들
+ *          을 다시 스택에 푸시하는 과정을 전체 정점을 출력할 때까지 지속
+ *          만약 전체 정점이 출력되지 않을 경우, 그래프에 사이클이 존재해 위상
+ *          쩡렬 순서가 존재하지 않은 것
  * 
  * @version null
- * @date    last update: 2022-12-05
+ * @date    last update: 2022-12-06
  * 
  * @copyright Copyright (c) Mindou 2022
  * 
@@ -26,6 +32,7 @@
 #define TOPO_H
 
 #include "stack.h"
+#include "main.h"
 
 /**
  * @brief 그래프 노드
@@ -56,7 +63,7 @@ typedef struct GraphType_T {
  */
 void init_graph_t(GraphType_T* g) {
     g->n = 0;
-    for(int v = 0; v < MAX; v++)
+    for(int v = 0; v < MAX/2; v++)
         g->adj_list[v] = NULL;
 }
 
@@ -67,7 +74,7 @@ void init_graph_t(GraphType_T* g) {
  * @param v 추가할 정점
  */
 void insert_vertex(GraphType_T* g, int v) {
-    if(((g->n) + 1) > MAX)
+    if(((g->n) + 1) > MAX/2)
         error("topo-sort: number of vertex is exceed");
     g->n++;
 }
@@ -101,7 +108,7 @@ int topo_sort(GraphType_T* g) {
 
     /* 모든 정점의 진입 차수 계산 */
     int *in_degree = malloc(sizeof(int)*g->n);  // 진입 차수 저장 배열
-    for(i = 0; i < g->n; i++)                   // 초기화
+    for(i = 0; i < g->n; i++)                   // 배열 초기화
         in_degree[i] = 0;
     for(i = 0; i < g->n; i++) {
         node = g->adj_list[i];                  // 정점 i에서 나오는 간선들
@@ -110,22 +117,21 @@ int topo_sort(GraphType_T* g) {
             node = node->link;
         }
     }
-    /* 진입 차수가 0인 정점을 스택에 삽입 */
+    /* 진입 차수 0인 정점 스택 푸시 */
     init_stack(&s);
     for(i = 0; i < g->n; i++) {
         if(in_degree[i] == 0) push(&s, i);
     }
     /* 위상 순서를 생성 */
-    while(!is_empty(&s)) {
-        int w;
-        w = pop(&s);
-        printf("vertex %d -> ", w); // 정점 출력
-        node = g->adj_list[w];      // 각 정점의 진입 차수 변경ㄴ
+    while(!is_empty_s(&s)) {
+        int w = pop(&s);                        // 진입 차수 0인 정점 팝
+        printf("vertex %d -> ", w);             // 팝한 정점 출력
+        node = g->adj_list[w];                  // 각 정점의 진입 차수 변경
         while(node != NULL) {
             int u = node->v;
-            in_degree[u]--;         // 정점 진입 차수 감소
-            if(in_degree[u] == 0) push(&s, u);
-            node = node->link;      // 다음 정점
+            in_degree[u]--;                     // 배열에 저장된 해당 정점 진입 차수 감소
+            if(in_degree[u] == 0) push(&s, u);  // 진입 차수가 감소되 0이 될 경우 스택 푸시
+            node = node->link;                  // 다음 정점으로 이동
         }
     }
     free(in_degree);
@@ -135,7 +141,7 @@ int topo_sort(GraphType_T* g) {
 
 /* //topo-sort
 int main() {
-    GraphType g;
+    GraphType_T g;
     graph_init_t(&g);
     insert_vertex(&g, 0);
     insert_vertex(&g, 1);

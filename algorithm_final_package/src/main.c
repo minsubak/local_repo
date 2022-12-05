@@ -4,12 +4,30 @@ void execute_kruskal(); // kruskal 시연
 void execute_prim();    // prim 시연
 void execute_dijkstra();// dijkstra 시연
 void execute_floyd();   // floyd 시연
+void execute_topo();    // topo-sort 시연
+void execute_sort();    // sort_package 시연
+
+int arr[MAX/4];
 
 int main() {
 
+    FILE *fp = fopen("./res/data.txt", "r");
+    if(fp == NULL) error("FIO: file not found!");
+    
+    int i = 0;
+    while(!feof(fp)) {
+        fscanf(fp, "%d", &arr[i++]);
+    }
+
     while(true) {
         int input;
-        printf("|select algorithm list|\n0: exit | 1: MST | 2: shortest path | 3: topo-sort\n>> ");
+        printf(" |select algorithm list|\n
+                0: exit\n
+                1: MST\n
+                2: shortest path\n
+                3: topo-sort\n
+                4: sort package\n
+                >> ");
         scanf("%d", &input);
         if(input == 0) break;
         else {
@@ -39,6 +57,11 @@ int main() {
                 enter(1);
                 execute_floyd();
             case 3:
+                printf("\n\ntopo-sort\n\n");
+                execute_topo();
+                break;
+            case 4:
+                execute_sort();
                 break;
             default:
                 printf("wrong answer\n");
@@ -115,3 +138,111 @@ void execute_floyd() {
 
     floyd(&g_floyd);
 }
+
+void execute_topo() {
+    GraphType_T g_topo;
+    init_graph_t(&g_topo);
+    insert_vertex(&g_topo, 0);
+    insert_vertex(&g_topo, 1);
+    insert_vertex(&g_topo, 2);
+    insert_vertex(&g_topo, 3);
+    insert_vertex(&g_topo, 4);
+    insert_vertex(&g_topo, 5);
+
+    // 정점 0의 인접 리스트 생성
+    insert_edge_t(&g_topo, 0, 2);
+    insert_edge_t(&g_topo, 0, 3);
+
+    // 정점 1의 인접 리스트 생성
+    insert_edge_t(&g_topo, 1, 3);
+    insert_edge_t(&g_topo, 1, 4);
+
+    // 정점 2의 인접 리스트 생성
+    insert_edge_t(&g_topo, 2, 3);
+    insert_edge_t(&g_topo, 2, 5);
+
+    // 정점 3의 인접 리스트 생성
+    insert_edge_t(&g_topo, 3, 5);
+
+    // 정점 4의 인접 리스트 생성
+    insert_edge_t(&g_topo, 4, 5);
+
+    // 위상 정렬
+    topo_sort(&g_topo);
+}
+
+void execute_sort() {
+
+    int tmp[25];
+    for(int i = 0; i < MAX/4; i++)
+        tmp[i] = arr[i];
+
+    printf("\n\n |select sort list|\n");
+    printf("0: cancel\n
+            1: selection\n
+            2: insertion\n
+            3: bubble\n
+            4: shell\n
+            5: merge\n
+            6: quick\n
+            7: radix\n
+            >> ");
+    int t;
+    scanf("%d", &t);
+    if(t == 0) return;
+    switch(t) {
+    case 1:
+        printf("selection sort\n");
+        selection_sort(tmp, MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    case 2:
+        printf("insertion sort\n");
+        insertion_sort(tmp, MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    case 3:
+        printf("bubble sort\n");
+        bubble_sort(tmp, MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    case 4:
+        printf("shell sort\n");
+        shell_sort(tmp, MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    case 5:
+        printf("merge sort\n");
+        merge_sort(tmp, 0,MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    case 6:
+        printf("quick sort\n");
+        quick_sort(tmp, 0, MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    case 7:
+        printf("radix sort\n");
+        radix_sort(tmp, MAX/4);
+        for(int i = 0; i < MAX/4; i++)
+            printf("%2d ", tmp[i]);
+        enter(2);
+        break;
+    default: 
+        printf("wrong answer\n");
+        break;
+    }
+}
+
