@@ -45,5 +45,6 @@
         "search.h": "c",
         "*.tcc": "cpp",
         "iomanip": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -7,29 +7,46 @@ void execute_floyd();   // floyd 시연
 
 int main() {
 
-    printf("MST\n\n");
-    /**
-     * kruskal과 prim 둘 다 MST 알고리즘이지만
-     * kruskal은 간선, prim은 정점이 중심이다.
-     * 또 kruskal은 이전 단계의 결과에 상관 없이
-     * 무조건적으로 최저 간선을 선택해 확장하지만
-     * prim은 이전 단계의 결과에 따라 확장한다.
-    */
-    execute_kruskal();
-    enter(1);
-    execute_prim();
-
-    /**
-     * dijkstra와 floyd 모두 최단 경로 알고리즘이지만
-     * dijkstra는 입력된 시작 정점에서 다른 정점까지의
-     * 최단 경로를 구하고, floyd는 모든 정점에서 다른
-     * 모든 정점까지의 최단 경로를 구한다는 차이가 있다.
-    */
-    printf("\n\nshortest path\n\n");
-    execute_dijkstra();
-    enter(1);
-    execute_floyd();
-
+    while(true) {
+        int input;
+        printf("|select algorithm list|\n0: exit | 1: MST | 2: shortest path | 3: topo-sort\n>> ");
+        scanf("%d", &input);
+        if(input == 0) break;
+        else {
+            switch(input) {
+            case 1:
+                /**
+                 * kruskal과 prim 둘 다 MST 알고리즘이지만
+                 * kruskal은 간선, prim은 정점이 중심이다.
+                 * 또 kruskal은 이전 단계의 결과에 상관 없이
+                 * 무조건적으로 최저 간선을 선택해 확장하지만
+                 * prim은 이전 단계의 결과에 따라 확장한다.
+                */
+                printf("MST\n\n");
+                execute_kruskal();
+                enter(1);
+                execute_prim();
+                break;
+            case 2:
+                /**
+                 * dijkstra와 floyd 모두 최단 경로 알고리즘이지만
+                 * dijkstra는 입력된 시작 정점에서 다른 정점까지의
+                 * 최단 경로를 구하고, floyd는 모든 정점에서 다른
+                 * 모든 정점까지의 최단 경로를 구한다는 차이가 있다.
+                */
+                printf("\n\nshortest path\n\n");
+                execute_dijkstra();
+                enter(1);
+                execute_floyd();
+            case 3:
+                break;
+            default:
+                printf("wrong answer\n");
+                break;
+            }
+        }
+    }
+    printf("exit\n");
     return 0;
 }
 
@@ -71,8 +88,30 @@ void execute_prim() {
 
 void execute_dijkstra(){
 
+    GraphType_D g_dijkstra = {7, 
+    {{ 0,   7, INF, INF,   3,  10, INF},
+    {  7,   0,   4,  10,   2,   6, INF},
+    {INF,   4,   0,   2, INF, INF, INF},
+    {INF,  10,   2,   0,  11,   9,   4},
+    {  3,   2, INF,  11,   0, INF,   5},
+    { 10,   6, INF,   9, INF,   0, INF},
+    {INF, INF, INF,   4,   5, INF,   0}}
+    };
+
+    dijkstra(&g_dijkstra, 0);
 }
 
 void execute_floyd() {
-    
+        
+    GraphType_F g_floyd = {7, 
+    {{ 0,   7, INF, INF,   3,  10, INF},
+    {  7,   0,   4,  10,   2,   6, INF},
+    {INF,   4,   0,   2, INF, INF, INF},
+    {INF,  10,   2,   0,  11,   9,   4},
+    {  3,   2, INF,  11,   0, INF,   5},
+    { 10,   6, INF,   9, INF,   0, INF},
+    {INF, INF, INF,   4,   5, INF,   0}}
+    };
+
+    floyd(&g_floyd);
 }

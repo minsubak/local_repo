@@ -1,7 +1,7 @@
 /**
  * @file    kruskal.h
  * @author  mindou (minsu5875@naver.com)
- * @brief   kurskal MST 알고리즘에 대한 설명
+ * @brief   kurskal MST algorithm에 대한 설명
  * 
  *          [개요]
  *          탐욕적인 방법(greedly method)을 이용해 선택의 순간마다 가장 좋다고

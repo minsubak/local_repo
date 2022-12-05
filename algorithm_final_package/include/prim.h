@@ -1,7 +1,7 @@
 /**
  * @file    prim.h
  * @author  mindou (minsu5875@naver.com)
- * @brief   prim MST 알고리즘에 대한 설명
+ * @brief   prim MST algorithm에 대한 설명
  *          
  *          [개요]
  *          입력받은 시작 정점에서부터 출발해 단계적으로 확장해나가는 알고리즘

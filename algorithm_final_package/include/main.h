@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <limits.h>
 
 #define MAX 100     // constant
 #define INF 1000L   // infinity
@@ -20,20 +19,28 @@
 */
 
 /** C11: Graph II */
-#include "kruskal.h"    // kruskal MST algorithm(w. union-find)  | Time complexity: O(|e|log2|e|)
-#include "prim.h"       // prim MST algorithm                    | Time complexity: O(|e|log2|e|) ~ O(n^2)
-#include "dijkstra.h"   // dijkstra shortest path algorithm      | Time complexity: O(n^2)
-//#include "floyd.h"      // floyd shortest path algorithm         | Time complexity: O(n^3)
-//#include "topo-sort.h"  // topological sort algorithm
-#include "union-find.h" // use with "kruskal.h"
+#include "kruskal.h"         // kruskal MST algorithm(w. union-find)  | Time complexity: O(|e|log2|e|)
+#include "prim.h"            // prim MST algorithm                    | Time complexity: O(|e|log2|e|) ~ O(n^2)
+#include "dijkstra.h"        // dijkstra shortest path algorithm      | Time complexity: O(n^2)
+#include "floyd.h"           // floyd shortest path algorithm         | Time complexity: O(n^3)
+#include "topo-sort.h"       // topological sort algorithm
+#include "union-find.h"      // use with "kruskal.h"
+#include "stack.h"           // use with "topo-sort.h"
 
 /** C12: Sort */
-//#include "sort.h"       // sort algorithm package
+//#include "selection_sort.h"  // Time complexity: O(n^2)
+//#include "insertion_sort.h"  // Time complexity: O(n^2)
+//#include "bubble_sort.h"     // Time complexity: O(n^2)
+//#include "shell_sort.h"      // Time complexity: O(n^1.5) ~ O(n^2)
+//#include "merge_sort.h"      // Time complexity: O(nlog2n)
+//#include "quick_sort.h"      // Time complexity: O(nlog2n)
+//#include "radix_sort.h"      // Time complexity: O(d*n) ~ o(n)
 
 /** C13: Search */
 
 
 /** C14: Hashing */
+
 
 /**
  * @brief print error message and exit program
