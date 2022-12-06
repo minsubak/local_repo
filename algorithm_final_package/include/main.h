@@ -24,29 +24,29 @@
 #include "kruskal.h"            // Time complexity: O(|e|log2|e|)          | kruskal MST algorithm(w. union-find)
 #include "prim.h"               // Time complexity: O(|e|log2|e|) ~ O(n^2) | prim MST algorithm
 #include "dijkstra.h"           // Time complexity: O(n^2)                 | dijkstra shortest path algorithm
-#include "floyd.h"              // Time complexity: O(n^3)                 |floyd shortest path algorithm
-#include "topo-sort.h"          // topological sort algorithm
-#include "union-find.h"         // use with "kruskal.h"
-#include "stack.h"              // use with "topo-sort.h"
+#include "floyd.h"              // Time complexity: O(n^3)                 | floyd shortest path algorithm
+#include "topo-sort.h"          //                                         | topological sort algorithm
+#include "union-find.h"         //                                         | use with "kruskal.h"
+#include "stack.h"              //                                         | use with "topo-sort.h"
 
 /** C12: Sort */
-#include "selection_sort.h"     // Time complexity: O(n^2)
-#include "insertion_sort.h"     // Time complexity: O(n^2)
-#include "bubble_sort.h"        // Time complexity: O(n^2)
-#include "shell_sort.h"         // Time complexity: O(n^1.5) ~ O(n^2)
-#include "merge_sort.h"         // Time complexity: O(nlog2n)
-#include "quick_sort.h"         // Time complexity: O(nlog2n)
-#include "radix_sort.h"         // Time complexity: O(d*n) ~ o(n)
-#include "queue.h"              // use with "radix_sort.h"
+#include "selection_sort.h"     // Time complexity: O(n^2)                 |
+#include "insertion_sort.h"     // Time complexity: O(n^2)                 |
+#include "bubble_sort.h"        // Time complexity: O(n^2)                 |
+#include "shell_sort.h"         // Time complexity: O(n^1.5) ~ O(n^2)      |
+#include "merge_sort.h"         // Time complexity: O(nlog2n)              |
+#include "quick_sort.h"         // Time complexity: O(nlog2n)              |
+#include "radix_sort.h"         // Time complexity: O(d*n) ~ o(n)          |
+#include "queue.h"              // use with "radix_sort.h"                 |
 
 /** C13: Search */
-#include "seq_search.h"         // Time complexity: O(n)        use with "index_seq_search.h"
+#include "seq_search.h"         // Time complexity: O(n)                   | use with "index_seq_search.h"
 #include "binary_search.h"      // Time complexity: O(log2n)
 #include "index_seq_search.h"   // Time complexity: O(m+n/m)
 #include "interpol_search.h"    // Time complexity: O(log2n)
+#include "avl.h"                // Time complexity: O(logn)
 
 /** C14: Hashing */
-
 
 /**
  * @brief print error message and exit program

@@ -21,13 +21,7 @@ int main() {
 
     while(true) {
         int input;
-        printf(" |select algorithm list|\n
-                0: exit\n
-                1: MST\n
-                2: shortest path\n
-                3: topo-sort\n
-                4: sort package\n
-                >> ");
+        printf(" |select algorithm list|\n0: exit\n1: MST\n2: shortest path\n3: topo-sort\n4: sort package\n>> ");
         scanf("%d", &input);
         if(input == 0) break;
         else {
@@ -178,15 +172,7 @@ void execute_sort() {
         tmp[i] = arr[i];
 
     printf("\n\n |select sort list|\n");
-    printf("0: cancel\n
-            1: selection\n
-            2: insertion\n
-            3: bubble\n
-            4: shell\n
-            5: merge\n
-            6: quick\n
-            7: radix\n
-            >> ");
+    printf("0: cancel\n1: selection\n2: insertion\n3: bubble\n4: shell\n5: merge\n6: quick\n7: radix\n>> ");
     int t;
     scanf("%d", &t);
     if(t == 0) return;
