@@ -44,7 +44,8 @@
         "sort.h": "c",
         "search.h": "c",
         "*.tcc": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "binary_search.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
