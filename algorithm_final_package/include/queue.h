@@ -1,6 +1,6 @@
 /**
  * @file    queue.h
- * @author  your name (you@domain.com)
+ * @author  Mindou (minsu5875@naver.com)
  * @brief   queue 자료구조
  *  
  *          [개요]
@@ -9,16 +9,19 @@
  * @version null
  * @date    last update: 2022-12-06
  * 
- * @copyright Copyright (c) 2022
+ * @copyright Copyright Mindou (c) 2022
  * 
  */
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#define BUCKETS 10
-#define DIGITS  4
+//#define BUCKETS 10
+//#define DIGITS  4
+#define MAX     100
 
-#include "main.h"
+// #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef int element_q;
 
