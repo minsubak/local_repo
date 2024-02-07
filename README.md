@@ -1,4 +1,4 @@
 # training_lecture_package
 # local_repo
 
-곧 다른 repo와 병합할 생각 중 >> obsidian
+타 repo(obsidian)과 병합 예정
